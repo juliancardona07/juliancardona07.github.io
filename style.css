@@ -1,0 +1,572 @@
+/* 
+font-family: 'Inter', sans-serif; */
+
+/*
+Forma de crear los estilos
+1.posicionamiento
+2.modelo cahaa BOX MODEL
+3.tipografia
+4.visuales
+5.otros
+*/
+:root {
+  /*colores*/
+  --bitcoin-orange: #f7931a;
+  --soft-orange: #ffe9d5;
+  --secundary-blue: #1a9af7;
+  --soft-blue: #e7f5ff;
+  --warm-black: #201e1c;
+  --black: #282623;
+  --grey: #bababa;
+  --off-white: #faf8f7;
+  --just-white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "DM Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-width: 320px;
+  height: 334px;
+  text-align: center;
+  background: linear-gradient(207.8deg, #201e1c 16.69%, #f7931a 100%);
+}
+
+header img {
+  width: 150px;
+  height: 24px;
+  margin-top: 60px;
+  align-self: center;
+}
+.header--title-container {
+  width: 98%;
+  min-width: 288px;
+  max-width: 900px;
+  height: 218px;
+  margin-top: 40px;
+  text-align: center;
+  align-self: center;
+}
+
+.header--title-container h1 {
+  font-size: 2.4rem;
+  line-height: 2.6rem;
+  font-weight: bold;
+  color: var(--just-white);
+}
+
+.header--title-container p {
+  margin-top: 25px;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--soft-orange);
+}
+
+.header--title-container .header--button {
+  position: absolute;
+  top: 275px;
+  left: calc(50% - 114.5px);
+  display: block;
+  margin-top: 35px;
+  padding: 15px;
+  height: 48px;
+  background-color: var(--off-white);
+  /*SOMBRA*/
+  box-shadow: 0px 4px 8px rgba(89, 73, 30, 0.16);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-decoration: none;
+  line-height: 1.8rem;
+  color: var(--warm-black);
+}
+
+.header--button span {
+  display: inline-block;
+  width: 13px;
+  height: 8px;
+  margin-left: 10px;
+  background-image: url("./assets/icons/down-arrow.svg");
+}
+
+main {
+  width: 100%;
+  min-width: 320px;
+  height: auto;
+  background-color: var(--off-white);
+}
+
+.main-exchange-container {
+  width: 100%;
+  height: auto;
+  padding-top: 70px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+.main-exchange-container--title {
+  width: 90%;
+  min-width: 288px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.backgroundImg {
+  background-image: url("./assets/img/bitcoin.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+.main-exchange-container--title h2 {
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 2.4rem;
+  line-height: 2.6rem;
+  color: var(--warm-black);
+}
+.main-exchange-container--title p {
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: #757575;
+}
+.main-tables-container {
+  display: flex;
+  gap: 10px;
+  width: 50%;
+  min-width: 235px;
+  max-width: 500px;
+  margin: 0 auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+}
+
+.main-currency-table,
+.main-currency-table2 {
+  /* min-width: 235px;
+  max-width: 500px; */
+  height: 360px;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+}
+
+.main-tables-container .main-currency-table p {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  color: var(--bitcoin-orange);
+  text-align: left;
+  padding-left: 15px;
+}
+.main-currency-table2 p {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  color: var(--secundary-blue);
+  text-align: left;
+  padding-left: 15px;
+}
+.currency-table--container,
+.currency-table2--container {
+  width: 90%;
+  min-width: 230px;
+  max-width: 300px;
+  height: 250px;
+  margin: 0 auto;
+}
+.currency-table--container table,
+.currency-table2--container table {
+  width: 100%;
+  height: 100%;
+}
+.currency-table--container td,
+.currency-table2--container td {
+  width: 50%;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.9rem;
+  color: var(--grey);
+  background-color: var(--just-white);
+  text-align: left;
+  padding-left: 15px;
+}
+/*BORDES DE LA TABLA*/
+.table__top-left {
+  border-radius: 15px 0px 0px 0px;
+}
+.table__top-right {
+  border-radius: 0px 15px 0px 0px;
+}
+.table__bottom-left {
+  border-radius: 0px 0px 0px 15px;
+}
+.table__bottom-right {
+  border-radius: 0px 0px 15px 0px;
+}
+.currency-table--container .table__right,
+.currency-table2--container .table__right {
+  font-weight: normal;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: #757575;
+}
+/*IMAGENES ARRIBA Y ABAJO TABLA 1*/
+.down {
+  display: inline-block;
+  background-image: url("./assets/icons/trending-down.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 15px;
+  height: 15px;
+  margin-left: 20px;
+}
+.up {
+  display: inline-block;
+  background-image: url("./assets/icons/trending-up.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 15px;
+  height: 15px;
+  margin-left: 20px;
+}
+.currency-table--date {
+  /* width: 200px; */
+  height: 30px;
+  background-color: var(--soft-orange);
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 8px;
+}
+
+.currency-table2--date {
+  /* width: 200px; */
+  height: 30px;
+  background-color: var(--soft-blue);
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 8px;
+}
+.main-currency-table .currency-table--date p {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  color: var(--warm-black);
+  padding: 0;
+  text-align: center;
+  font-weight: 400;
+}
+.main-currency-table2 .currency-table2--date p {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  color: var(--warm-black);
+  padding: 0;
+  text-align: center;
+  font-weight: 400;
+}
+/*SECTION PRODUCTOS*/
+
+.main-product-detail {
+  position: relative;
+  width: 100%;
+  min-width: 320px;
+  height: auto;
+  background-color: var(--warm-black);
+  padding: 20px 10px;
+}
+
+.product-detail--batata-logo {
+  position: absolute;
+  top: -15px;
+  left: calc(50% - 10px);
+  background-image: url("./assets/icons/batata.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 30px;
+}
+.product-detail--title {
+  margin-top: 20px;
+  padding: 10px 10px;
+}
+.product-detail--title h2 {
+  font-weight: bold;
+  font-size: 2.4rem;
+  line-height: 2.6rem;
+  text-align: center;
+  color: var(--just-white);
+  margin-bottom: 20px;
+}
+.product-detail--title p {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  text-align: center;
+  color: grey;
+  margin-bottom: 30px;
+}
+.product-detail--card {
+  width: 90%;
+  min-width: 288px;
+  max-width: 400px;
+  background-color: var(--black);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  margin: 15px auto;
+  padding: 10px 15px;
+}
+
+.icon-card {
+  display: inline-block;
+  background-position: left;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.clock {
+  background-image: url("./assets/icons/clock.svg");
+}
+.eye {
+  background-image: url("./assets/icons/eye.svg");
+}
+.money {
+  background-image: url("./assets/icons/dollar-sign.svg");
+}
+.check {
+  background-image: url("./assets/icons/check-circle.svg");
+}
+.product-cards--container .product--card-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  color: var(--just-white);
+  margin-bottom: 10px;
+  text-align: left;
+  padding-top: 5px;
+}
+.product-cards--container .product--card-body {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: gray;
+  text-align: left;
+}
+/*IMAGEN CONTAINER*/
+.bitcoin-img-container {
+  width: 100%;
+  min-width: 320px;
+  height: 60vh;
+  background-image: url("./assets/img/bitcoinbaby2x.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.bitcoin-img-container h2 {
+  font-weight: bold;
+  font-size: 2.4rem;
+  line-height: 2.6rem;
+  text-align: center;
+  color: var(--just-white);
+  padding-top: 60px;
+}
+.main-plans--container {
+  width: 100%;
+  min-width: 320px;
+  background-color: var(--off-white);
+  padding-bottom: 70px;
+  text-align: center;
+}
+.plans--title {
+  width: 90%;
+  min-width: 288px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+.plans--title h2 {
+  padding-top: 50px;
+  font-weight: bold;
+  font-size: 2.4rem;
+  line-height: 2.6rem;
+  color: var(--warm-black);
+}
+.plans--title p {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: #757575;
+  padding-top: 30px;
+}
+.plans-container--slider {
+  display: flex;
+  height: 316px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-align: center;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  gap: 10px;
+  margin: 0 30px;
+}
+.plan-container--card {
+  position: relative;
+  scroll-snap-align: center;
+  width: 70%;
+  min-width: 190px;
+  max-width: 300px;
+  height: 258px;
+  box-shadow: 0px 4px 8px rgba(89, 73, 30, 0.16);
+  background: #ffffff;
+  text-align: center;
+  border-radius: 15px;
+  margin: 30px 0;
+  padding: 0 20px;
+}
+.recomended,
+.economic,
+.semestral {
+  position: absolute;
+  width: 120px;
+  height: 30px;
+  padding: 8px;
+  top: -15px;
+  left: calc(50% - 60px);
+  font-size: 1.2rem;
+  color: var(--just-white);
+  background: #f7931a;
+  border-radius: 8px;
+}
+.economic {
+  background: #1a9af7;
+}
+.semestral {
+  background: rgb(106, 212, 106);
+}
+.plan-card--title {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: black;
+  padding-top: 30px;
+}
+.plan-card--price {
+  padding: 5px 0;
+  font-size: 5.2rem;
+  font-weight: bold;
+  line-height: 6.3rem;
+  letter-spacing: -0.08em;
+  color: black;
+}
+.plan-card--price sup {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  vertical-align: 30px;
+}
+.plan-card--saving {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: #757575;
+  margin: 10px 0;
+}
+.plan-card--ca,
+.plan-card-econo--ca,
+.plan-card-semes--ca {
+  font-family: "DM Sans", sans-serif;
+  padding: 10px;
+  background-color: var(--off-white);
+  font-weight: bold;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--warm-black);
+  border: 2px solid #f7931a;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.plan-card-econo--ca {
+  border: 2px solid #1a9af7;
+}
+.plan-card-semes--ca {
+  border: 2px solid rgb(106, 212, 106);
+}
+.plan-card--ca span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("./assets/icons/orange-right-arrow.svg");
+  vertical-align: text-bottom;
+}
+.plan-card-econo--ca span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("./assets/icons/arrow-rightblue.png");
+  vertical-align: text-bottom;
+}
+.plan-card-semes--ca span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("./assets/icons/arrow-rightgreen.png");
+  vertical-align: text-bottom;
+}
+footer {
+  width: 100%;
+  background: var(--bitcoin-orange);
+  display: flex;
+  justify-content: space-around;
+}
+footer ul {
+  margin: 20px 0;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  list-style: none;
+}
+footer ul li {
+  color: var(--just-white);
+  margin: 10px 0;
+}
+.footer__logo {
+  align-self: center;
+}
+.footer__logo span {
+  display: inline-block;
+  background-image: url("./assets/img/logo-footer.svg");
+  width: 60px;
+  height: 24px;
+}
+.footer__logo p {
+  font-weight: 500;
+  font-size: 0.8rem;
+  line-height: 1.8rem;
+  color: var(--soft-orange);
+}
