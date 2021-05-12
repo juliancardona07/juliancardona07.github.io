@@ -1,0 +1,396 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+nav h1,
+p {
+  font-family: Linux Libertine, Hoefler Text, Georgia, Times New Roman, Times,
+    serif;
+  font-size: 1.5rem;
+}
+
+nav h1::first-letter {
+  font-size: 2.5rem;
+}
+
+h1 > span:last-child {
+  font-size: 2.5rem;
+}
+
+nav p {
+  margin-top: 1rem;
+}
+
+nav {
+  width: 100%;
+  height: 10rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+main {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #36c;
+}
+
+.idiomas {
+  position: relative;
+  text-align: center;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.idiomas h3 {
+  color: #36c;
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.idiomas span {
+  color: #54595d;
+  font-size: 1.5rem;
+}
+
+.espanol {
+  position: absolute;
+  top: -1rem;
+  right: 55%;
+}
+
+.English {
+  position: absolute;
+  top: -1rem;
+  left: 55%;
+}
+
+.Japones {
+  position: absolute;
+  top: 5rem;
+  right: 60%;
+}
+
+.Deustch {
+  position: absolute;
+  top: 5rem;
+  left: 60%;
+}
+
+.Ruso {
+  position: absolute;
+  top: 11rem;
+  right: 62%;
+}
+
+.Frances {
+  position: absolute;
+  top: 11rem;
+  left: 62%;
+}
+
+.Italiano {
+  position: absolute;
+  top: 17rem;
+  right: 60%;
+}
+
+.Chino {
+  position: absolute;
+  top: 17rem;
+  left: 60%;
+}
+
+.Portugues {
+  position: absolute;
+  top: 23rem;
+  right: 55%;
+}
+
+.Polski {
+  position: absolute;
+  top: 23rem;
+  left: 55%;
+}
+
+.logo_wiki img {
+  width: 20rem;
+  display: block;
+  margin: auto;
+  padding-top: 4rem;
+}
+
+/*BUSCADOR*/
+.buscador {
+  width: 100%;
+  height: 10rem;
+  text-align: center;
+  margin-top: 7rem;
+  display: flex;
+  justify-content: center;
+}
+
+.buscador_contenedor {
+  border: 1px solid #a2a9b1;
+  width: 50rem;
+  height: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.buscador_contenedor input {
+  width: 38rem;
+  height: 3rem;
+  margin-left: 1rem;
+  /* outline-color: blue; */
+  outline: none;
+  border: none;
+}
+
+.buscador_contenedor:focus-within {
+  border: 2px solid #36c;
+}
+
+.buscador .logo_buscar img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.leer_lenguaje {
+  text-align: center;
+}
+
+.leer_lenguaje input {
+  width: 30rem;
+  height: 3.5rem;
+  text-align: center;
+  background-color: #f8f9fa;
+  outline: 1.6rem solid #fff;
+  color: #36c;
+  font-weight: 700;
+  border: 1px solid #a2a9b1;
+  font-size: 1.5rem;
+}
+
+/*CONTENEDOR PRINCIPAL*/
+
+.container {
+  width: 100%;
+  /* height: 10rem; */
+  border-top: 1px solid #a2a9b1;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem 4rem 0rem 4rem;
+}
+
+.container span {
+  font-size: 1.4rem;
+  /* vertical-align: middle; */
+}
+
+.container1 {
+  width: 30%;
+}
+.container2,
+.container3,
+.container4 {
+  width: 20%;
+}
+
+/*CONTENEDOR 1*/
+.container1_div,
+.container1_div2 {
+  display: flex;
+  /* align-items: flex-start; */
+}
+
+.container1 .wikimedia {
+  width: 4rem;
+  height: 4rem;
+}
+
+.container1_div p {
+  padding-left: 2rem;
+  text-align: justify;
+}
+.container1_div2 {
+  margin-top: 4rem;
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+.container1_div2 .wikidownload {
+  width: 4rem;
+  height: 4rem;
+}
+
+.wikidownload_text {
+  padding-left: 2rem;
+  text-align: justify;
+}
+
+.wikidownload_text p {
+  margin-top: 1rem;
+}
+
+/*CONTENEDOR 2*/
+.container2_div,
+.container2_div2,
+.container2_div3,
+.container2_div4 {
+  display: flex;
+}
+
+.container2_div2,
+.container2_div3,
+.container2_div4 {
+  margin-top: 4rem;
+}
+
+.container2_div img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.container2_div2 img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.container2_div3 img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.container2_div4 img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.container2_div .commons_text,
+.container2_div2 .wikibooks_text {
+  margin: auto 0;
+  padding-left: 1.5rem;
+}
+
+.container2_div .commons_text span,
+.wikibooks_text span {
+  display: block;
+}
+
+.container2_div3 .wikiversity_text,
+.container2_div4 .wikisource_text {
+  margin: auto 0;
+  padding-left: 1.5rem;
+}
+
+.container2_div3 .wikiversity_text span,
+.container2_div4 .wikisource_text span {
+  display: block;
+}
+/*CONTAINER 3*/
+.container3_div,
+.container3_div2,
+.container3_div3,
+.container3_div4 {
+  display: flex;
+}
+
+.container3_div2,
+.container3_div3,
+.container3_div4 {
+  margin-top: 4rem;
+}
+
+.container3_div img,
+.container3_div2 img,
+.container3_div3 img,
+.container3_div4 img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.container3_text {
+  margin: auto 0;
+  padding-left: 1.5rem;
+}
+
+.container3_text span {
+  display: block;
+}
+
+/*CONTAINER 4*/
+.container4_div,
+.container4_div2,
+.container4_div3,
+.container4_div4 {
+  display: flex;
+}
+
+.container4_div2,
+.container4_div3,
+.container4_div4 {
+  margin-top: 4rem;
+}
+
+.container4_div img,
+.container4_div2 img,
+.container4_div3 img,
+.container4_div4 img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.container4_text {
+  margin: auto 0;
+  padding-left: 1.5rem;
+}
+
+.container4_text span {
+  display: block;
+}
+
+/*FOOTER*/
+footer {
+  display: flex;
+  justify-content: center;
+  height: 4rem;
+  border-top: 1px solid #dadce0;
+  margin-top: 1rem;
+}
+
+.menu_footer_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu_footer_container span {
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.menu_footer {
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.menu_footer li:first-child {
+  list-style: none;
+}
+
+.menu_footer li a {
+  color: #36c;
+  margin-right: 3rem;
+}

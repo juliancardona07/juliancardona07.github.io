@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.menu-header a {
+  padding: 1rem;
+  color: rgb(88, 88, 88);
+  font-size: 1.4rem;
+}
+
+.menu-header img {
+  width: 2rem;
+  height: 2rem;
+}
+
+#usuario {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.contenedor {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagen_google {
+  padding: 1rem;
+}
+
+.buscador {
+  padding: 1rem;
+}
+
+.buscador input {
+  width: 45rem;
+  height: 3.5rem;
+  border: 0.1rem solid rgb(212, 211, 211);
+  border-radius: 1rem;
+}
+
+.botones {
+  padding: 1rem;
+}
+
+.botones input {
+  background-color: rgb(246, 248, 246);
+  margin: 0.5rem;
+  width: 16rem;
+  height: 3rem;
+  border: 0rem solid rgb(247, 237, 237);
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+  text-align: center;
+  color: rgb(87, 85, 85);
+}
+
+footer {
+  display: flex;
+  margin-top: 28rem;
+  background-color: rgb(246, 248, 246);
+  justify-content: space-between;
+  height: 5rem;
+}
+
+.menu_footer_1,
+.menu_footer_2 {
+  padding-top: 1rem;
+  font-size: 1.3rem;
+}
+
+/* footer .menu_footer_2 {
+  font-size: 1.3rem;
+
+} */
+
+.menu_footer_1 a,
+.menu_footer_2 a {
+  padding: 1rem;
+  color: rgb(105, 103, 103);
+  font-size: 1.35rem;
+}
