@@ -1,0 +1,11 @@
+.container-info {
+  width: 70%;
+}
+.container-bottoms {
+  flex-direction: row;
+}
+
+.container-movies-img img {
+  width: 150px;
+  height: 150px;
+}

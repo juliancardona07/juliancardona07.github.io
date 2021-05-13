@@ -1,0 +1,178 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  background: black;
+}
+header {
+  width: 100%;
+  min-width: 290px;
+  background-color: black;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+header h1 {
+  font-family: "Bebas Neue", cursive;
+  color: red;
+  font-size: 1.6rem;
+}
+.header-ul {
+  width: 100%;
+  padding-right: 10px;
+  margin: 0 auto;
+  min-width: 250px;
+  max-width: 320px;
+  margin-top: 10px;
+  /*   padding: 0 5px;
+  text-align: left; */
+}
+.header-ul ul {
+  list-style: none;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /* justify-content: center; */
+}
+.header-ul a {
+  text-decoration: none;
+  padding-left: 10px;
+  color: #aaa;
+  font-size: 1.2rem;
+}
+.header-ul a:hover {
+  color: #fff;
+}
+.container {
+  position: relative;
+  width: 100%;
+}
+.container-img {
+  display: inline-block;
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+    url(./imgs/backdrop.jpg);
+  /* background-image: url("./imgs/backdrop.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-width: 280px;
+  height: 420px;
+}
+.container-description {
+  position: absolute;
+  top: 0px;
+  padding: 20px;
+}
+.container-title {
+  font-weight: 600;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: white;
+}
+.container-info {
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  margin-bottom: 10px;
+  color: white;
+  text-align: justify;
+}
+.container-bottoms {
+  position: absolute;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 0 10px;
+  top: calc(50% - 20px);
+}
+.bottom1 span {
+  display: inline-block;
+  background-image: url("./imgs/playblanco.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.bottom2 span {
+  display: inline-block;
+  background-image: url("./imgs/informacionblanco.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 30px;
+  height: 20px;
+  margin-right: 10px;
+}
+.bottom1,
+.bottom2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+.bottom1 {
+  margin-bottom: 10px;
+}
+.bottom1:hover,
+.bottom2:hover {
+  background: #fff;
+  color: #000;
+}
+.bottom1:hover > span {
+  background-image: url("./imgs/playnegro.png");
+  width: 30px;
+  height: 20px;
+}
+.bottom2:hover > span {
+  background-image: url("./imgs/informacionnegro.png");
+  width: 30px;
+  height: 20px;
+}
+.container-movies {
+  width: 100%;
+}
+.container-movies p {
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+  margin: 10px 0;
+}
+.container-movies-img {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  border: 5px solid rgba(167, 161, 161, 0.515);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-align: center;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  gap: 5px;
+
+  /* margin: 10px 40px; */
+}
+.container-movies-img img {
+  width: 150px;
+  height: 150px;
+}
