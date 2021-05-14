@@ -10,6 +10,12 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 520px)" />
     <link
@@ -23,9 +29,9 @@
     <header>
       <h1>Julian Cardona</h1>
       <nav class="header-ul">
-        <ul>
-          <li><a href="">Inicio</a></li>
-          <li><a href="">Programas</a></li>
+        <ul class="menu-header">
+          <li><a href="#0">Inicio</a></li>
+          <li><a href="#0">Programas</a></li>
           <li><a href="">Películas</a></li>
           <li><a href="">Mas Recientes</a></li>
           <li><a href="">Mi lista</a></li>
@@ -53,7 +59,11 @@
     <section class="container-movies">
       <p>Películas recomendadas</p>
       <figure class="container-movies-img">
-        <img src="./imgs/darkknight.jpg" alt="caballero de la noche" />
+        <img
+          class="img"
+          src="./imgs/darkknight.jpg"
+          alt="caballero de la noche"
+        />
         <img src="./imgs/martian.jpg" alt="el marciano" />
         <img src="./imgs/readyplayerone.jpg" alt="ready player one" />
         <img src="./imgs/topgun.jpg" alt="top gun" />
@@ -62,6 +72,41 @@
         <img src="./imgs/tron.jpg" alt="tron" />
       </figure>
     </section>
-    <footer></footer>
+    <footer>
+      <ul class="menu">
+        <li>
+          <a href="#0">
+            <span>Inicio</span>
+            <span>
+              <i class="fas fa-home" aria-hidden="true"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#0">
+            <span>Programas</span>
+            <span>
+              <i class="fas fa-ticket-alt" aria-hidden="true"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#0">
+            <span>Peliculas</span>
+            <span>
+              <i class="fas fa-video" aria-hidden="true"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#0">
+            <span>Mi Lista</span>
+            <span>
+              <i class="fas fa-tasks" aria-hidden="true"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </footer>
   </body>
 </html>

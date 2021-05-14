@@ -20,7 +20,7 @@ header {
 }
 header h1 {
   font-family: "Bebas Neue", cursive;
-  color: red;
+  color: rgb(255, 50, 50);
   font-size: 1.6rem;
 }
 .header-ul {
@@ -28,7 +28,7 @@ header h1 {
   padding-right: 10px;
   margin: 0 auto;
   min-width: 250px;
-  max-width: 320px;
+  max-width: 520px;
   margin-top: 10px;
   /*   padding: 0 5px;
   text-align: left; */
@@ -45,12 +45,12 @@ header h1 {
 .header-ul a {
   text-decoration: none;
   padding-left: 10px;
-  color: #aaa;
+  color: #fff;
   font-size: 1.2rem;
 }
-.header-ul a:hover {
-  color: #fff;
-}
+/* .header-ul a:hover {
+  color: rgb(255, 66, 66);
+} */
 .container {
   position: relative;
   width: 100%;
@@ -158,6 +158,7 @@ header h1 {
   font-size: 2rem;
   margin: 10px 0;
 }
+/*---CONTENEDOR IMAGENES PELICULAS---*/
 .container-movies-img {
   display: flex;
   /* flex-direction: column; */
@@ -175,4 +176,42 @@ header h1 {
 .container-movies-img img {
   width: 150px;
   height: 150px;
+}
+/*----------FOOTER-----------*/
+.footer {
+  width: 80%;
+}
+.menu {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* gap: 20px; */
+  margin: 20px 0;
+}
+.menu a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  color: white;
+  font-size: 1.4rem;
+}
+.menu a span {
+  transition: transform 0.2s ease-out;
+}
+
+.menu a span:first-child {
+  display: inline-block;
+  padding: 10px;
+}
+.menu a span:last-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
 }
