@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de SQL para Audiencias - Web</title>
+    <style>
+        /* Estilos CSS para la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .scrollable {
+            overflow-y: auto;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Contenedor principal de la página -->
+<div class="container">
+    <h2>Generador de SQL para Audiencias - Web</h2>
+
+    <!-- Formulario para ingresar datos de la audiencia -->
+    <label for="audiencia_id">ID de la Audiencia:</label>
+    <input type="text" id="audiencia_id">
+
+    <label for="nombre_audiencia">Nombre de la Audiencia:</label>
+    <input type="text" id="nombre_audiencia">
+
+    <label for="fecha_audiencia">Fecha de la Audiencia (YYYY/MM/DD):</label>
+    <input type="text" id="fecha_audiencia">
+
+    <label for="convocatoria_id">ID de la Convocatoria Padre:</label>
+    <input type="text" id="convocatoria_id">
+
+    <label for="empleos">IDs de Empleos (separados por coma):</label>
+    <input type="text" id="empleos">
+
+    <label for="fecha_publica">Fecha de Publicación (YYYY-MM-DD):</label>
+    <input type="text" id="fecha_publica">
+
+    <label for="fecha_fin">Fecha de Fin (YYYY-MM-DD):</label>
+    <input type="text" id="fecha_fin">
+
+    <label for="inscripciones">Datos de Inscripciones: id_inscripcion,puesto,puntaje (una por línea separados por coma):</label>
+    <textarea id="inscripciones" class="scrollable"></textarea>
+
+    <label for="vacantes">IDs de Vacantes (separados por coma):</label>
+    <textarea id="vacantes" class="scrollable"></textarea>
+
+    <!-- Botón para generar y descargar el SQL -->
+    <button onclick="generateSQL()">Generar y Descargar SQL</button>
+</div>
+
+<script>
+    /**
+     * Función principal para generar las sentencias SQL y descargar el archivo.
+     * Esta función se ejecuta cuando el usuario hace clic en el botón "Generar y Descargar SQL".
+     */
+    function generateSQL() {
+        // Obtener valores de los campos del formulario
+        const audienciaId = document.getElementById('audiencia_id').value;
+        const nombreAudiencia = document.getElementById('nombre_audiencia').value;
+        const fechaAudiencia = document.getElementById('fecha_audiencia').value;
+        const convocatoriaId = document.getElementById('convocatoria_id').value;
+        const empleos = document.getElementById('empleos').value.split(',');
+        const fechaPublica = document.getElementById('fecha_publica').value;
+        const fechaFin = document.getElementById('fecha_fin').value;
+        const inscripciones = document.getElementById('inscripciones').value.split('\n');
+        const vacantes = document.getElementById('vacantes').value.split('\n');
+
+        // Array para almacenar todas las sentencias SQL generadas
+        let sqlStatements = [];
+
+        // 1. Generar la sentencia para la tabla "audiencia"
+        sqlStatements.push(`--1 audiencia`);
+        sqlStatements.push(`INSERT INTO audiencia (id, nombre, fecha, convocatoria_id, publica, marcar_todo) VALUES (${audienciaId}, '${nombreAudiencia}', '${fechaAudiencia}', ${convocatoriaId}, true, true);`);
+        // Esta sentencia inserta un nuevo registro en la tabla "audiencia" con los datos proporcionados por el usuario.
+
+        // 2. Generar sentencias para la tabla "audiencia_empleo"
+        sqlStatements.push(`\n--2 audiencia empleo`);
+        empleos.forEach(empleo => {
+            sqlStatements.push(`INSERT INTO audiencia_empleo (id, audiencia_id, empleo_id) VALUES (nextval('hibernate_sequence'), ${audienciaId}, ${empleo.trim()});`);
+        });
+        // Estas sentencias insertan registros en la tabla "audiencia_empleo" para cada empleo asociado a la audiencia.
+        // Se usa 'nextval('hibernate_sequence')' para generar IDs únicos automáticamente.
+
+        // 3. Generar la sentencia para la tabla "publica_elegible"
+        sqlStatements.push(`\n--3 publica elegible`);
+        const fechaFinCompleta = `${fechaFin} 23:59:00`;
+        sqlStatements.push(`INSERT INTO publica_elegible (id, fecha_publica, fecha_fin, fecha_registra, estado_publica_elegible, fecha_inicio, audiencia_id, tipo_publica_elegible) VALUES (${audienciaId}, '${fechaPublica}', '${fechaFinCompleta}', '${fechaPublica}', 'CREADA', '${fechaPublica}', ${audienciaId}, 'AU');`);
+        // Esta sentencia inserta un registro en la tabla "publica_elegible" con la información de publicación de la audiencia.
+        // Nota: Se añade la hora '23:59:00' a la fecha de fin para que cubra todo el día.
+
+        // 4. Generar la sentencia para "homologa_empleo"
+        sqlStatements.push(`\n--4 Homologa empleo`);
+        empleos.forEach(empleo => {
+            sqlStatements.push(`INSERT INTO homologa_empleo SELECT nextval('hibernate_sequence'), ae.id, ${empleo.trim()} FROM audiencia_empleo ae WHERE ae.audiencia_id = ${audienciaId} AND ae.empleo_id = ${empleo.trim()};`);
+        });
+        // Estas sentencias insertan registros en la tabla "homologa_empleo" para cada empleo asociado a la audiencia.
+        // Esto parece ser una tabla de relación que vincula empleos con audiencias específicas.
+
+        // 5. Generar sentencias para "publica_elegible_inscripcion"
+        sqlStatements.push(`\n--5 Publica elegible inscripción`);
+        inscripciones.forEach(inscripcion => {
+            const [convocatoriaId, puesto, puntaje] = inscripcion.split(',');
+            sqlStatements.push(`INSERT INTO publica_elegible_inscripcion (id, publica_elegible_id, inscripcion_convocatoria_id, puesto, sigue_concurso, puntaje, observacion, aprobado) VALUES (nextval('hibernate_sequence'), ${audienciaId}, ${convocatoriaId.trim()}, ${puesto.trim()}, true, ${puntaje.trim()}, NULL, false);`);
+        });
+        // Estas sentencias insertan registros en la tabla "publica_elegible_inscripcion" para cada inscripción.
+        // Cada inscripción incluye información sobre la convocatoria, el puesto y el puntaje del candidato.
+
+        // 6. Generar la sentencia para "prioridad_vacante"
+        sqlStatements.push(`\n--6 Prioridades`);
+        const vacantesStr = vacantes.map(vacante => vacante.trim()).join(',');
+        sqlStatements.push(`INSERT INTO prioridad_vacante SELECT nextval('hibernate_sequence'), pei.id, vacante.id, null
+FROM publica_elegible pe
+INNER JOIN publica_elegible_inscripcion pei ON (pe.id = pei.publica_elegible_id)
+INNER JOIN audiencia a ON (a.id = pe.audiencia_id)
+INNER JOIN audiencia_empleo ae ON (a.id = ae.audiencia_id)
+INNER JOIN empleo ON (ae.empleo_id = empleo.id)
+INNER JOIN vacante ON (vacante.empleo_id = empleo.id)
+INNER JOIN homologa_empleo he ON (he.audiencia_empleo_id = ae.id)
+INNER JOIN empleo e2 ON (e2.id = he.empleo_homologa_id)
+INNER JOIN publica_elegible pe2 ON (pe2.empleo_id = e2.id)
+INNER JOIN publica_elegible_inscripcion pei2 ON (pei2.publica_elegible_id = pe2.id AND pei.inscripcion_convocatoria_id = pei2.inscripcion_convocatoria_id)
+WHERE ae.audiencia_id = ${audienciaId} AND vacante.id IN (${vacantesStr})
+GROUP BY 2,3;`);
+        // Esta sentencia  inserta registros en la tabla "prioridad_vacante".
+        
+        // Unir todas las sentencias SQL en un solo string
+        const sqlContent = sqlStatements.join('\n');
+
+        // Crear un objeto Blob con el contenido SQL
+        const blob = new Blob([sqlContent], { type: 'text/sql' });
+        const url = URL.createObjectURL(blob);
+
+        // Crear un elemento de enlace para descargar el archivo
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `audiencia_sql_${new Date().toISOString().split('T')[0]}.sql`;
+
+        // Simular un clic en el enlace para iniciar la descarga
+        link.click();
+
+        // Liberar el objeto URL después de la descarga para liberar memoria
+        URL.revokeObjectURL(url);
+    }
+</script>
+
+</body>
+</html>
